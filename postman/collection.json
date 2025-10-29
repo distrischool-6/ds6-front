@@ -1,0 +1,953 @@
+{
+	"info": {
+		"_postman_id": "37731921-cfcbd4dc-da5b-4a74-9b86-bcaaf3b8c767",
+		"name": "DS6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "student-service",
+			"item": [
+				{
+					"name": "Create Student",
+					"id": "37731921-36de51f4-270c-4a94-9258-4a144250f300",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"João Silva\",\r\n  \"birthDate\": \"2000-05-15\",\r\n  \"grade\": \"10º Ano\",\r\n  \"classNumber\": \"10A\",\r\n  \"address\": \"Rua das Flores, 123, Fortaleza\",\r\n  \"phone\": \"85999999999\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/students/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Students",
+					"id": "37731921-6631be10-6307-4cf5-86f0-663ae2c24010",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/students/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student By Id",
+					"id": "37731921-ec9e39fd-fc18-4de6-bba0-110aa54a7291",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/students/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student By(Name Or Registration)",
+					"id": "37731921-95ed9c6e-cb74-4059-b743-13c0f4a1f649",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/students/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": null,
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "registration",
+									"value": null,
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"id": "37731921-750b9af4-22d2-46c0-88a6-5f220a3d7b0c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"João Silva Santos\",\r\n  \"grade\": \"11º Ano\",\r\n  \"address\": \"Avenida da Liberdade, 456, Porto\",\r\n  \"phone\": \"+351987654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/students/update/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students",
+								"update",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export to CSV",
+					"id": "37731921-a7165214-4fff-4f9b-a8a4-67fa6aa70ed6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/students/export/csv",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"students",
+								"export",
+								"csv"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "37731921-5ceaf88a-41f5-4c83-8662-c70f4932d415"
+		},
+		{
+			"name": "user-service",
+			"item": [
+				{
+					"name": "Register User",
+					"id": "37731921-0786d7b7-bd63-4723-8d26-2573889abad8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"mypassword123\",\r\n    \"role\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"id": "37731921-00ba0831-d7dc-4aac-a6e7-36f9e1b52a48",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"mypassword123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "37731921-3c005526-0f25-4ecc-ac7c-400a27127c1e"
+		},
+		{
+			"name": "admin-service",
+			"item": [
+				{
+					"name": "Create Teacher",
+					"id": "37731921-10d923bf-e97c-4b94-9a00-0633d08c83b7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"João Silva\",\r\n    \"discipline\": \"Matemática\",\r\n    \"phone\": \"(11) 99999-9999\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/teachers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Teachers",
+					"id": "37731921-9543fba4-3987-4f1d-be96-65c5a6c92f22",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/teachers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Teacher By Id",
+					"id": "37731921-b8333022-dda9-490f-9334-b717a65ecb1e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/teachers/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"teachers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Teacher",
+					"id": "37731921-b5e210f8-0601-4d40-8ae7-7e803de6e95a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"João Silva Santos\",\r\n    \"discipline\": \"Matemática Avançada\",\r\n    \"phone\": \"(11) 88888-8888\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/teachers/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"teachers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Teacher",
+					"id": "37731921-286baf84-8677-41df-8bf5-f4cadec89436",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/teachers/{{id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"teachers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "37731921-120c079a-5a09-45dd-8141-d2c5c9004125"
+		},
+		{
+			"name": "presence-service",
+			"item": [
+				{
+					"name": "CRUD de Presença",
+					"item": [
+						{
+							"name": "Create Attendance",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201 Created\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"pm.test(\"Salva os IDs do registro de presença\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.collectionVariables.set(\"attendanceId\", jsonData.id);",
+											"    pm.collectionVariables.set(\"studentId\", jsonData.studentId);",
+											"    pm.collectionVariables.set(\"classId\", jsonData.classId);",
+											"});"
+										],
+										"type": "text/javascript",
+										"id": "2b34820d-689c-4828-928d-53a732086222"
+									}
+								}
+							],
+							"id": "37731921-6b60eb48-16be-4b0d-b72f-eaad76e26c50",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentId\": \"{{$randomUUID}}\",\n    \"classId\": \"{{$randomUUID}}\",\n    \"date\": \"2023-10-27\",\n    \"status\": \"PRESENT\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/attendances",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"attendances"
+									]
+								},
+								"description": "Cria um novo registro de presença. O ID da presença, do aluno e da turma são salvos."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Attendances by Student",
+							"id": "37731921-9c5289c5-26a2-4d09-9089-c5f76f27dc2f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/attendances?studentId={{studentId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"attendances"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "{{studentId}}"
+										}
+									]
+								},
+								"description": "Busca todos os registros de presença de um aluno específico."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Attendances by Class",
+							"id": "37731921-9196c254-a141-414c-8582-d77c1a4a22c7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/attendances?classId={{classId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"attendances"
+									],
+									"query": [
+										{
+											"key": "classId",
+											"value": "{{classId}}"
+										}
+									]
+								},
+								"description": "Busca todos os registros de presença de uma turma específica."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Attendances by Student and Class",
+							"id": "37731921-3ea0445e-f263-4e56-96ed-a0ea8d03cb1b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/attendances?studentId={{studentId}}&classId={{classId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"attendances"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "{{studentId}}"
+										},
+										{
+											"key": "classId",
+											"value": "{{classId}}"
+										}
+									]
+								},
+								"description": "Busca os registros de presença de um aluno em uma turma específica."
+							},
+							"response": []
+						}
+					],
+					"id": "37731921-89c648ae-d067-4a66-851c-46a3c7b2e9cc",
+					"description": "Endpoints para gerenciar os registros de presença."
+				}
+			],
+			"id": "37731921-5a12b17e-e19c-4066-a914-82789af731cd"
+		},
+		{
+			"name": "grade-exams-service",
+			"item": [
+				{
+					"name": "CRUD de Notas",
+					"item": [
+						{
+							"name": "Create Grade",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201 Created\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"pm.test(\"Salva os IDs da nota criada\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.collectionVariables.set(\"gradeId\", jsonData.id);",
+											"    pm.collectionVariables.set(\"studentId\", jsonData.studentId);",
+											"    pm.collectionVariables.set(\"classId\", jsonData.classId);",
+											"});"
+										],
+										"type": "text/javascript",
+										"id": "7ba610f2-7452-40e5-8009-d0b283cd5744"
+									}
+								}
+							],
+							"id": "37731921-eae82fa4-0b23-4616-ba16-36cc0641484a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentId\": \"{{$randomUUID}}\",\n    \"classId\": \"{{$randomUUID}}\",\n    \"description\": \"Prova 1 - Teste A/B\",\n    \"value\": 8.5,\n    \"date\": \"2023-10-27\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/grades",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"grades"
+									]
+								},
+								"description": "Cria uma nova nota. O ID da nota, do aluno e da turma são salvos."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Grades by Student",
+							"id": "37731921-07c43cb9-7123-4091-88eb-95a981ec856c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/grades?studentId={{studentId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"grades"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "{{studentId}}"
+										}
+									]
+								},
+								"description": "Busca todas as notas de um aluno específico."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Grades by Class",
+							"id": "37731921-686c1357-f613-4887-a440-e36c17bb0dd7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/grades?classId={{classId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"grades"
+									],
+									"query": [
+										{
+											"key": "classId",
+											"value": "{{classId}}"
+										}
+									]
+								},
+								"description": "Busca todas as notas de uma turma específica."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Grades by Student and Class",
+							"id": "37731921-5e6fa382-b08c-4021-8787-12b653199bed",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/grades?studentId={{studentId}}&classId={{classId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"grades"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "{{studentId}}"
+										},
+										{
+											"key": "classId",
+											"value": "{{classId}}"
+										}
+									]
+								},
+								"description": "Busca as notas de um aluno em uma turma específica."
+							},
+							"response": []
+						}
+					],
+					"id": "37731921-eb750451-849b-47e5-aa2d-0a4bc79ba47e",
+					"description": "Endpoints para gerenciar as notas."
+				}
+			],
+			"id": "37731921-48d21328-bf9b-4d5b-a052-5e655599022f"
+		},
+		{
+			"name": "class-schedule-service",
+			"item": [
+				{
+					"name": "CRUD de Turmas",
+					"item": [
+						{
+							"name": "Create Class",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201 Created\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"pm.test(\"Salva o ID da turma criada\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.collectionVariables.set(\"classId\", jsonData.id);",
+											"    pm.collectionVariables.set(\"teacherId\", jsonData.teacherId);",
+											"});"
+										],
+										"type": "text/javascript",
+										"id": "7b410582-39ce-4a02-a9ad-d7e9f11145bc"
+									}
+								}
+							],
+							"id": "37731921-8ba33573-bf18-496b-86ab-d7faa18103e6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Turma de Teste A/B\",\n    \"shift\": \"Manhã\",\n    \"teacherId\": \"{{$randomUUID}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/classes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"classes"
+									]
+								},
+								"description": "Cria uma nova turma. O ID da turma e do professor são salvos como variáveis da coleção."
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Classes",
+							"id": "37731921-541173e3-df61-48fe-923c-ff75fa1b5b22",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/classes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"classes"
+									]
+								},
+								"description": "Lista todas as turmas cadastradas."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Class By Id",
+							"id": "37731921-e5d2fbc4-7a73-4d7d-97c2-cc5b697e5334",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/classes/{{classId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"classes",
+										"{{classId}}"
+									]
+								},
+								"description": "Busca uma turma específica pelo seu ID (utiliza o ID salvo da requisição de criação)."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Class",
+							"id": "37731921-e358df6f-e9d5-4865-be94-4705f63a6fde",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/classes/{{classId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"classes",
+										"{{classId}}"
+									]
+								},
+								"description": "Exclui a turma criada anteriormente."
+							},
+							"response": []
+						}
+					],
+					"id": "37731921-4239f58b-6473-41cf-9f55-b800d294a1c6",
+					"description": "Endpoints para gerenciar as turmas."
+				},
+				{
+					"name": "Gerenciar Alunos na Turma",
+					"item": [
+						{
+							"name": "Add Student to Class",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// Gera um studentId aleatório para o teste",
+											"const studentId = pm.variables.replaceIn('{{$randomUUID}}');",
+											"pm.collectionVariables.set(\"studentId\", studentId);"
+										],
+										"type": "text/javascript",
+										"id": "fb368035-78b6-401f-8fb1-f38c6c7aab18"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200 OK\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Verifica se o aluno foi adicionado\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    var studentId = pm.collectionVariables.get(\"studentId\");",
+											"    pm.expect(jsonData.studentIds).to.include(studentId);",
+											"});"
+										],
+										"type": "text/javascript",
+										"id": "519ac7e4-f8d8-4e70-bb39-36614ed3cc20"
+									}
+								}
+							],
+							"id": "37731921-c08b69e4-42e6-4760-9532-014fa2742169",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentId\": \"{{studentId}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/classes/{{classId}}/students",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"classes",
+										"{{classId}}",
+										"students"
+									]
+								},
+								"description": "Adiciona um aluno a uma turma. Um `studentId` aleatório é gerado e salvo."
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Student From Class",
+							"id": "37731921-2a1e5080-c8e6-4cd8-a943-81d166b6ee86",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/classes/{{classId}}/students/{{studentId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"classes",
+										"{{classId}}",
+										"students",
+										"{{studentId}}"
+									]
+								},
+								"description": "Remove o aluno que foi adicionado anteriormente."
+							},
+							"response": []
+						}
+					],
+					"id": "37731921-4726f552-c01a-4c86-a614-0dd808f769de",
+					"description": "Endpoints para adicionar e remover alunos."
+				}
+			],
+			"id": "37731921-35d1c6ee-709e-43fb-b3b4-13f05851f025"
+		}
+	],
+	"variable": [
+		{
+			"key": "studentId",
+			"value": ""
+		},
+		{
+			"key": "classId",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
